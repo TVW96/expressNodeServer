@@ -1,29 +1,14 @@
 // server.js
 
 // Add your code here
-const express = require('express');
-const port = process.env.PORT || 3000;
-const app = express();
+// server.js
 
-//. route handler for root path
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+import app from './app.js';
 
-//  route handler for about page
-app.get('/about', (req, res) => {
-    res.send('About page')
-})
+// Set the port to either the environment's provided port or default to 3000
+const PORT = process.env.PORT || 3000;
 
-// 404 error handler for undefined routes
-app.use((req, res) => {
-    res.status(404).send('404 - Not Found');
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
-//. start the server
-app.listen(port, () => {
-    console.log(`Listengin on port ${port}`);
-});
-
-// Do not delete the following line of code
-export default server;
